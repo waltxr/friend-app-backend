@@ -1,0 +1,2 @@
+class ValidPoint < ApplicationRecord
+end

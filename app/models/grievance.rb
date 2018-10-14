@@ -1,0 +1,2 @@
+class Grievance < ApplicationRecord
+end
