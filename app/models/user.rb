@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :reported_quotes, through: :reported_actions, source: :actionable, source_type: 'Quote'
   has_many :received_quotes, through: :received_actions, source: :actionable, source_type: 'Quote'
 
+  #needs better names
   has_many :reported_sources, through: :reported_actions, source: :actionable, source_type: 'Source'
   has_many :received_sources, through: :received_actions, source: :actionable, source_type: 'Source'
 
