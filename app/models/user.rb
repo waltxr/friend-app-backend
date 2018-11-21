@@ -2,8 +2,6 @@ class User < ApplicationRecord
   has_many :reported_actions, :class_name => 'Action', :foreign_key => 'reporter_id'
   has_many :received_actions, :class_name => 'Action', :foreign_key =>  'receiver_id'
 
-  #TODO: need to rethink names and behaviors of these relationshps. So far it works for grievances only, and even that model could have several receivers. don't box yourself in via architecture.
-
   has_many :reported_grievances, through: :reported_actions, source: :actionable, source_type: 'Grievance'
   has_many :received_grievances, through: :received_actions, source: :actionable, source_type: 'Grievance'
 
