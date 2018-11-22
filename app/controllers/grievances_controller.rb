@@ -8,7 +8,7 @@ class GrievancesController < ApplicationController
    # POST /Grievances
    def create
      @grievance = Grievance.create!(grievance_params)
-     @action = associate(@grievance)
+     associate(@grievance)
 
      json_response_file_action(@grievance)
    end
