@@ -6,7 +6,7 @@ class GrievancesController < ApplicationController
    end
 
    # POST /Grievances
-   def create
+   def create     
      @grievance = Grievance.create!(grievance_params)
      associate(@grievance)
 

@@ -1,4 +1,3 @@
 class Source < ApplicationRecord
-  include Actionable
-  include ReporterReceiver
+  include Actionable  
 end

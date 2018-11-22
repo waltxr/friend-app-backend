@@ -1,4 +1,3 @@
 class Proclamation < ApplicationRecord
-  include Actionable
-  include ReporterReceiver
+  include Actionable  
 end

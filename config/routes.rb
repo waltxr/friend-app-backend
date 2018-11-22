@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   post 'signup', to: 'users#create'
   post 'auth/login', to: 'authentication#authenticate'
-  post 'grievances', to: 'grievances#create'
-  post 'actions', to: 'actions#create'
+  post 'grievances/file', to: 'grievances#create'
+  post 'grievances', to: 'grievances#index'
+  post 'valid_points', to: 'valid_points#create'
+
 
 end
