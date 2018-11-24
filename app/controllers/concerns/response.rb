@@ -6,14 +6,13 @@ module Response
 
   def json_response_index(object, status = :ok)
       json = []
-      object.each do |obj|        
+      object.each do |obj|
         json << {
           type: obj.class.name,
           obj: obj,
           reporter: obj.reporter,
           receiver: obj.receiver
         }
-
       end
       render json: json, status: status
   end
@@ -30,4 +29,5 @@ module Response
         ],
         status: status
   end
+  
 end
