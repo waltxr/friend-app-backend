@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
+  before_action :set_user, only: :show
+
+  # GET /users
+  def index
+    @users = User.all
+    json_response(@users)
+  end
+
+  #GET /users/:id
+  def show
+    json_response_user(@user)
+  end
+
   # POST /signup
   # return authenticated token upon signup
   def create
@@ -7,6 +20,11 @@ class UsersController < ApplicationController
     @auth_token = AuthenticateUser.new(@user.email, @user.password).call
     @response = { message: Message.account_created, auth_token: @auth_token }
     json_response(@response, :created)
+  end
+
+  def update
+    current_user.update(user_params)
+    json_response(current_user)
   end
 
   private
@@ -19,4 +37,9 @@ class UsersController < ApplicationController
       :password_confirmation
     )
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end
