@@ -26,11 +26,11 @@ class GrievancesController < ApplicationController
    # PUT /grievances/:id
    def update
      @grievance.update(grievance_params)
-     json_response_cateogry(@grievence)
+     json_response_cateogry(@grievance)
    end
 
+   #DELETE /grievances/:id
    def destroy
-     byebug
      @grievance.destroy
      head :no_content
    end

@@ -10,10 +10,10 @@ module Response
 
   def json_response_user(object, status = :ok)
       render json: object, :include => [
-        {:filed_grievances => {:include => :receiver}
-        },
-        {:received_grievances => {:include => :reporter}
-        }
+        {:filed_grievances => {:include => :receiver}},
+        {:received_grievances => {:include => :reporter}},
+        {:awarded_valid_points => {:include => :reporter}},
+        {:received_valid_points => {:include => :receiver}}
         ], status: status
   end
 

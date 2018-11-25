@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     json_response(@users)
   end
 
-  #GET /users/:id
+  # GET /users/:id
   def show
     json_response_user(@user)
   end
@@ -22,9 +22,16 @@ class UsersController < ApplicationController
     json_response(@response, :created)
   end
 
+  # PUT /users/edit
   def update
     current_user.update(user_params)
-    json_response(current_user)
+    json_response_user(current_user)
+  end
+
+  # DELETE /users/destroy
+  def destroy
+    current_user.destroy
+    head :no_content
   end
 
   private

@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :filed_grievances, :class_name => 'Grievance', :foreign_key => 'reporter_id'
   has_many :received_grievances, :class_name => 'Grievance', :foreign_key =>  'receiver_id'
 
-  # has_many :filed_grievances, through: :reported_actions, source: :actionable, source_type: 'Grievance'
-  # has_many :received_grievances, through: :received_actions, source: :actionable, source_type: 'Grievance'
+  has_many :awarded_valid_points, :class_name => 'ValidPoint', :foreign_key => 'reporter_id'
+  has_many :received_valid_points, :class_name => 'ValidPoint', :foreign_key => 'receiver_id'
 
   has_many :filed_lols, through: :reported_actions, source: :actionable, source_type: 'Lol'
   has_many :received_lols, through: :received_actions, source: :actionable, source_type: 'Lol'
@@ -21,6 +21,4 @@ class User < ApplicationRecord
   has_many :sited_sources, through: :reported_actions, source: :actionable, source_type: 'Source'
   has_many :received_sources, through: :received_actions, source: :actionable, source_type: 'Source'
 
-  has_many :rewarded_valid_points, through: :reported_actions, source: :actionable, source_type: 'Valid_Points'
-  has_many :valid_points_awarded, through: :received_actions, source: :actionable, source_type: 'Valid_Points'
 end
