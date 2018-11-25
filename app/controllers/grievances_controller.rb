@@ -1,22 +1,52 @@
 class GrievancesController < ApplicationController
-   # GET /Grievances
-   def index
-     @filed_grievances = current_user.filed_grievances
-     json_response_index(@filed_grievances)
+  before_action :set_grievance, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:field_index, :received_index]
+   # GET users/filed_grievances
+   def filed_index
+     @filed_grievances = @user.filed_grievances
+     json_response(@filed_grievances)
+   end
+   # GET users/received_grievances
+   def received_index
+     @received_grievances = @user.received_grievances
+     json_response(@received_grievances)
    end
 
-   # POST /Grievances
-   def create     
-     @grievance = Grievance.create!(grievance_params)
-     associate(@grievance)
+   # GET grievances/:id
+   def show
+     json_response(@grievance)
+   end
 
-     json_response_file_action(@grievance)
+   # POST /grievances
+   def create
+     @grievance = current_user.filed_grievances.create!(grievance_params)
+     json_response(@grievance)
+   end
+
+   # PUT /grievances/:id
+   def update
+     @grievance.update(grievance_params)
+     json_response(@grievence)
+   end
+
+   def destroy
+     byebug
+     @grievance.destroy
+     head :no_content
    end
 
    private
 
    def grievance_params
-     params.permit(:title, :description)
+     params.permit(:title, :description, :receiver_id)
+   end
+
+   def set_grievance
+     @grievance = Grievance.find(params[:id])
+   end
+
+   def set_user
+     @user = User.find(params[:user_id])
    end
 
 end

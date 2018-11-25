@@ -24,10 +24,14 @@ ActiveRecord::Schema.define(version: 20181020144819) do
   end
 
   create_table "grievances", force: :cascade do |t|
+    t.integer "reporter_id"
+    t.integer "receiver_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_grievances_on_receiver_id"
+    t.index ["reporter_id"], name: "index_grievances_on_reporter_id"
   end
 
   create_table "lols", force: :cascade do |t|

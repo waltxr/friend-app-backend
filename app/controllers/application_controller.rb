@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::API
   include Response
-  include AssociateActionsWithTypes
 
   # called before every action on controllers
   before_action :authorize_request

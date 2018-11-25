@@ -3,11 +3,11 @@ class User < ApplicationRecord
 
   validates_presence_of :name, :email, :password_digest
 
-  has_many :reported_actions, :class_name => 'Action', :foreign_key => 'reporter_id'
-  has_many :received_actions, :class_name => 'Action', :foreign_key =>  'receiver_id'
+  has_many :filed_grievances, :class_name => 'Grievance', :foreign_key => 'reporter_id'
+  has_many :received_grievances, :class_name => 'Grievance', :foreign_key =>  'receiver_id'
 
-  has_many :filed_grievances, through: :reported_actions, source: :actionable, source_type: 'Grievance'
-  has_many :received_grievances, through: :received_actions, source: :actionable, source_type: 'Grievance'
+  # has_many :filed_grievances, through: :reported_actions, source: :actionable, source_type: 'Grievance'
+  # has_many :received_grievances, through: :received_actions, source: :actionable, source_type: 'Grievance'
 
   has_many :filed_lols, through: :reported_actions, source: :actionable, source_type: 'Lol'
   has_many :received_lols, through: :received_actions, source: :actionable, source_type: 'Lol'

@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :grievances, only: [:index]
+  resources :grievances, except: [:index]
+
+  resources :users do
+      get 'filed_grievances', to: 'grievances#filed_index'
+      get 'received_grievances', to: 'grievances#received_index'
+  end
+
+
 
   post 'signup', to: 'users#create'
   post 'auth/login', to: 'authentication#authenticate'
-  post 'grievances/file', to: 'grievances#create'
-  post 'grievances', to: 'grievances#index'
-  post 'valid_points', to: 'valid_points#create'
-
-
 end
