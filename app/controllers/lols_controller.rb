@@ -4,7 +4,7 @@ class LolsController < ApplicationController
 
   # GET users/awarded_lols
   def awarded_index
-    @awarded_lols = @user.filed_lols
+    @awarded_lols = @user.awarded_lols
     json_response_cateogry(@awarded_lols)
   end
 

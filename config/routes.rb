@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :lols, except: [:index]
   resources :proclamations, except: [:index]
   resources :quotes, except: [:index]
+  resources :sources, except: [:index]
 
   resources :users, except: [:update, :destroy] do
       get 'filed_grievances', to: 'grievances#filed_index'
@@ -22,6 +23,9 @@ Rails.application.routes.draw do
 
       get 'reported_quotes', to: 'quotes#reported_index'
       get 'received_quotes', to: 'quotes#received_index'
+
+      get 'cited_sources', to: 'sources#cited_index'
+      get 'received_sources', to: 'sources#received_index'
   end
 
 
