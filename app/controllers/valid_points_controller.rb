@@ -1,9 +1,10 @@
 class ValidPointsController < ApplicationController
   before_action :set_valid_point, only: [:show, :update, :destroy]
   before_action :set_user, only: [:awarded_index, :received_index]
-   # GET users/filed_valid_points
+
+   # GET users/awarded_valid_points
    def awarded_index
-     @awarded_valid_points = @user.filed_valid_points
+     @awarded_valid_points = @user.awarded_valid_points
      json_response_cateogry(@awarded_valid_points)
    end
    # GET users/received_valid_points
@@ -42,10 +43,11 @@ class ValidPointsController < ApplicationController
    end
 
    def set_valid_point
-     @valid_point = valid_point.find(params[:id])
+     @valid_point = ValidPoint.find(params[:id])
    end
 
    def set_user
      @user = User.find(params[:user_id])
    end
+
 end

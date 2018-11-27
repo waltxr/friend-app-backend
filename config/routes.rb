@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :grievances, except: [:index]
   resources :valid_points, except: [:index]
+  resources :lols, except: [:index]
 
   resources :users, except: [:update, :destroy] do
       get 'filed_grievances', to: 'grievances#filed_index'
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
 
       get 'awarded_valid_points', to: 'valid_points#awarded_index'
       get 'received_valid_points', to: 'valid_points#received_index'
+
+      get 'awarded_lols', to: 'lols#awarded_index'
+      get 'received_lols', to: 'lols#received_index'
   end
 
 
