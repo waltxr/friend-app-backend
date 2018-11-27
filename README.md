@@ -9,10 +9,10 @@ Requires name, email and password:
 /signup
 ```
 ### Authorize
+Requires email and password
 ```
 /auth/login
 ```
-Requires email and password
 ### Endpoints:  
 
 ```               grievances POST   /grievances(.:format)                            grievances#create
