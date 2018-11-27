@@ -15,8 +15,8 @@ class User < ApplicationRecord
   has_many :reported_proclamations, :class_name => 'Proclamation', :foreign_key => 'reporter_id'
   has_many :received_proclamations, :class_name => 'Proclamation', :foreign_key => 'receiver_id'
 
-  has_many :filed_quotes, through: :reported_actions, source: :actionable, source_type: 'Quote'
-  has_many :received_quotes, through: :received_actions, source: :actionable, source_type: 'Quote'
+  has_many :reported_quotes, through: :class_name => 'Quote', :foreign_key => 'reporter_id'
+  has_many :received_quotes, through: :class_name => 'Quote', :foreign_key => 'receiver_id'
 
   has_many :sited_sources, through: :reported_actions, source: :actionable, source_type: 'Source'
   has_many :received_sources, through: :received_actions, source: :actionable, source_type: 'Source'
