@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :awarded_lols, :class_name => 'Lol', :foreign_key => 'reporter_id'
   has_many :received_lols, :class_name => 'Lol', :foreign_key => 'receiver_id'
 
-  has_many :filed_proclamations, through: :reported_actions, source: :actionable, source_type: 'Proclamation'
-  has_many :received_proclamations, through: :received_actions, source: :actionable, source_type: 'Proclamation'
+  has_many :reported_proclamations, :class_name => 'Proclamation', :foreign_key => 'reporter_id'
+  has_many :received_proclamations, :class_name => 'Proclamation', :foreign_key => 'receiver_id'
 
   has_many :filed_quotes, through: :reported_actions, source: :actionable, source_type: 'Quote'
   has_many :received_quotes, through: :received_actions, source: :actionable, source_type: 'Quote'
