@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181020144819) do
-
-  create_table "actions", force: :cascade do |t|
-    t.integer "reporter_id"
-    t.integer "receiver_id"
-    t.integer "actionable_id"
-    t.string "actionable_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["receiver_id"], name: "index_actions_on_receiver_id"
-    t.index ["reporter_id"], name: "index_actions_on_reporter_id"
-  end
+ActiveRecord::Schema.define(version: 20181014175424) do
 
   create_table "grievances", force: :cascade do |t|
     t.integer "reporter_id"
@@ -35,31 +24,47 @@ ActiveRecord::Schema.define(version: 20181020144819) do
   end
 
   create_table "lols", force: :cascade do |t|
+    t.integer "reporter_id"
+    t.integer "receiver_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_lols_on_receiver_id"
+    t.index ["reporter_id"], name: "index_lols_on_reporter_id"
   end
 
   create_table "proclamations", force: :cascade do |t|
+    t.integer "reporter_id"
+    t.integer "receiver_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_proclamations_on_receiver_id"
+    t.index ["reporter_id"], name: "index_proclamations_on_reporter_id"
   end
 
   create_table "quotes", force: :cascade do |t|
+    t.integer "reporter_id"
+    t.integer "receiver_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_quotes_on_receiver_id"
+    t.index ["reporter_id"], name: "index_quotes_on_reporter_id"
   end
 
   create_table "sources", force: :cascade do |t|
+    t.integer "reporter_id"
+    t.integer "receiver_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_sources_on_receiver_id"
+    t.index ["reporter_id"], name: "index_sources_on_reporter_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,10 +77,14 @@ ActiveRecord::Schema.define(version: 20181020144819) do
   end
 
   create_table "valid_points", force: :cascade do |t|
+    t.integer "reporter_id"
+    t.integer "receiver_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_valid_points_on_receiver_id"
+    t.index ["reporter_id"], name: "index_valid_points_on_reporter_id"
   end
 
 end

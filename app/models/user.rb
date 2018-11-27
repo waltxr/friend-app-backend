@@ -15,10 +15,10 @@ class User < ApplicationRecord
   has_many :reported_proclamations, :class_name => 'Proclamation', :foreign_key => 'reporter_id'
   has_many :received_proclamations, :class_name => 'Proclamation', :foreign_key => 'receiver_id'
 
-  has_many :reported_quotes, through: :class_name => 'Quote', :foreign_key => 'reporter_id'
-  has_many :received_quotes, through: :class_name => 'Quote', :foreign_key => 'receiver_id'
+  has_many :reported_quotes, :class_name => 'Quote', :foreign_key => 'reporter_id'
+  has_many :received_quotes, :class_name => 'Quote', :foreign_key => 'receiver_id'
 
-  has_many :cited_sources, through: :class_name => 'Sources', :foreign_key => 'reporter_id'
-  has_many :received_sources, through: :class_name => 'Sources', :foreign_key => 'receiver_id'
+  has_many :cited_sources, :class_name => 'Source', :foreign_key => 'reporter_id'
+  has_many :received_sources, :class_name => 'Source', :foreign_key => 'receiver_id'
 
 end
