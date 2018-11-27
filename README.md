@@ -61,4 +61,4 @@ user_received_proclamations GET    /users/:user_id/received_proclamations(.:form
                      signup POST   /signup(.:format)                                users#create
                  auth_login POST   /auth/login(.:format)                            authentication#authenticate
                  users_edit PUT    /users/edit(.:format)                            users#update
-               users_delete DELETE /users/delete(.:format)                          users#destroy```
+               users_delete DELETE /users/delete(.:format)                          users#destroy
