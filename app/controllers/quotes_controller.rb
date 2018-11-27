@@ -4,8 +4,8 @@ class QuotesController < ApplicationController
 
    # GET users/reported_quotes
    def reported_index
-     @filed_quotes = @user.filed_quotes
-     json_response_cateogry(@filed_quotes)
+     @reported_quotes = @user.reported_quotes
+     json_response_cateogry(@reported_quotes)
    end
    # GET users/received_quotes
    def received_index
@@ -20,7 +20,7 @@ class QuotesController < ApplicationController
 
    # POST /quotes
    def create
-     @quote = current_user.filed_quotes.create!(quote_params)
+     @quote = current_user.reported_quotes.create!(quote_params)
      json_response_cateogry(@quote)
    end
 

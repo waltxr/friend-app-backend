@@ -39,7 +39,7 @@ class LolsController < ApplicationController
 
   private
 
-  def valid_point_params
+  def lol_params
     params.permit(:title, :description, :receiver_id)
   end
 

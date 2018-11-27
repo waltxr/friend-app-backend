@@ -7,6 +7,7 @@ class SourcesController < ApplicationController
      @cited_sources = @user.cited_sources
      json_response_cateogry(@cited_sources)
    end
+   
    # GET users/received_sources
    def received_index
      @received_sources = @user.received_sources
@@ -20,7 +21,7 @@ class SourcesController < ApplicationController
 
    # POST /sources
    def create
-     @source = current_user.filed_sources.create!(source_params)
+     @source = current_user.cited_sources.create!(source_params)
      json_response_cateogry(@source)
    end
 
