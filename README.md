@@ -4,14 +4,16 @@
 
 ### Get Account
 
-##### /signup
-###### requires name, email and password
-###### will return token good for 24hrs
-
+Requires name, email and password:
+```
+/signup
+```
 ### Authorize
-
-##### /auth/login
-###### exchange email and password for token good for 24hrs
+```
+/auth/login
+```
+Tokens good for 24hrs
+### Endpoints:
 
 ```               grievances POST   /grievances(.:format)                            grievances#create
                   grievance GET    /grievances/:id(.:format)                        grievances#show
