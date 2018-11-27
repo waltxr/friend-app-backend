@@ -12,8 +12,8 @@ Requires name, email and password:
 ```
 /auth/login
 ```
-Tokens good for 24hrs
-### Endpoints:
+Requires email and password
+### Endpoints:  
 
 ```               grievances POST   /grievances(.:format)                            grievances#create
                   grievance GET    /grievances/:id(.:format)                        grievances#show
