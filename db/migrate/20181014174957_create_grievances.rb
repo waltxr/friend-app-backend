@@ -3,6 +3,7 @@ class CreateGrievances < ActiveRecord::Migration[5.1]
     create_table :grievances do |t|
       t.references :reporter
       t.references :receiver
+      t.references :arbitrator
       t.string :title
       t.string :description
 

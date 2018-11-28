@@ -1,3 +1,5 @@
 class Source < ApplicationRecord
-  include ReporterReceiver  
+  include ReporterReceiver
+  include Commentable
+
 end

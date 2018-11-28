@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :grievances, except: [:index]
+  resources :grievances, except: [:index] do
+    resources :comments, module: :grievances
+  end
+
   resources :valid_points, except: [:index]
   resources :lols, except: [:index]
   resources :proclamations, except: [:index]
