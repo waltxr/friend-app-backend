@@ -3,8 +3,8 @@ class User < ApplicationRecord
 
   validates_presence_of :name, :email, :password_digest
 
-  has_many :grievances
-  has_many :comments, through: :grievances
+  has_many :comments
+
   has_many :filed_grievances, :class_name => 'Grievance', :foreign_key => 'reporter_id'
   has_many :received_grievances, :class_name => 'Grievance', :foreign_key =>  'receiver_id'
 
