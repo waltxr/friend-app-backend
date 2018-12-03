@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :comments
 
   has_many :filed_grievances, :class_name => 'Grievance', :foreign_key => 'reporter_id'
-  has_many :received_grievances, :class_name => 'Grievance', :foreign_key =>  'receiver_id'
+  has_many :grievance_recipients
+  has_many :received_grievances, :through => :grievance_recipients, :source => :grievance
 
   has_many :awarded_valid_points, :class_name => 'ValidPoint', :foreign_key => 'reporter_id'
   has_many :received_valid_points, :class_name => 'ValidPoint', :foreign_key => 'receiver_id'
