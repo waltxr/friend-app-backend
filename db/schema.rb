@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181128000737) do
+ActiveRecord::Schema.define(version: 20181203033118) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commentable_type"
@@ -21,14 +21,23 @@ ActiveRecord::Schema.define(version: 20181128000737) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "grievance_recipients", force: :cascade do |t|
+    t.integer "grievance_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["grievance_id"], name: "index_grievance_recipients_on_grievance_id"
+    t.index ["user_id"], name: "index_grievance_recipients_on_user_id"
+  end
+
   create_table "grievances", force: :cascade do |t|
     t.integer "reporter_id"
-    t.integer "receiver_id"
+    t.integer "arbitrator_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["receiver_id"], name: "index_grievances_on_receiver_id"
+    t.index ["arbitrator_id"], name: "index_grievances_on_arbitrator_id"
     t.index ["reporter_id"], name: "index_grievances_on_reporter_id"
   end
 
