@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20181203033118) do
 
   create_table "grievance_recipients", force: :cascade do |t|
     t.integer "grievance_id"
-    t.integer "receiver_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["grievance_id"], name: "index_grievance_recipients_on_grievance_id"
-    t.index ["receiver_id"], name: "index_grievance_recipients_on_receiver_id"
+    t.index ["user_id"], name: "index_grievance_recipients_on_user_id"
   end
 
   create_table "grievances", force: :cascade do |t|

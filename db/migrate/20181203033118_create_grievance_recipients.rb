@@ -2,8 +2,8 @@ class CreateGrievanceRecipients < ActiveRecord::Migration[5.1]
   def change
     create_table :grievance_recipients do |t|
       t.references :grievance
-      t.references :receiver
-      
+      t.references :user
+
       t.timestamps
     end
   end
