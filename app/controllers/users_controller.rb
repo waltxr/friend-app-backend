@@ -34,6 +34,20 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+  #POST users/find_user
+  def find
+    byebug
+   @user = User.find_by(email: params[:user][:email])
+
+   if @user
+     render json: @user
+   else
+     @errors = @user.errors.full_messages
+     render json: @errors
+   end
+
+  end
+
   private
 
   def user_params
