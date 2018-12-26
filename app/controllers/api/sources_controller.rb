@@ -1,4 +1,4 @@
-class SourcesController < ApplicationController
+class Api::SourcesController < ApplicationController
   before_action :set_source, only: [:show, :update, :destroy]
   before_action :set_user, only: [:filed_index, :received_index]
 
@@ -7,7 +7,7 @@ class SourcesController < ApplicationController
      @cited_sources = @user.cited_sources
      json_response_cateogry(@cited_sources)
    end
-   
+
    # GET users/received_sources
    def received_index
      @received_sources = @user.received_sources

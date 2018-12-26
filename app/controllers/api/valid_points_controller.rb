@@ -1,4 +1,4 @@
-class ValidPointsController < ApplicationController
+class Api::ValidPointsController < ApplicationController
   before_action :set_valid_point, only: [:show, :update, :destroy]
   before_action :set_user, only: [:awarded_index, :received_index]
 

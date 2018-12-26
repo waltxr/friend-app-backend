@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-  skip_before_action :authorize_request, only: :create
+class Api::UsersController < ApplicationController
+  # skip_before_action :authorize_request, only: :create
   before_action :set_user, only: :show
 
   # GET /users
@@ -36,12 +36,12 @@ class UsersController < ApplicationController
 
   #POST users/find_user
   def find
-    byebug
    @user = User.find_by(email: params[:user][:email])
 
    if @user
      render json: @user
    else
+     byebug
      @errors = @user.errors.full_messages
      render json: @errors
    end
@@ -50,17 +50,12 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.permit(
-      :name,
-      :email,
-      :password,
-      :password_confirmation
-    )
-  end
-
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def user_params
+      params.require(:user).permit(:name, :email, :password)
   end
 
 end

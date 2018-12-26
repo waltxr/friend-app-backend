@@ -1,4 +1,4 @@
-class Grievances::CommentsController < CommentsController
+class Api::Grievances::CommentsController < CommentsController
   before_action :set_commentable
 
   private

@@ -1,4 +1,4 @@
-class QuotesController < ApplicationController
+class Api::QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :update, :destroy]
   before_action :set_user, only: [:filed_index, :received_index]
 

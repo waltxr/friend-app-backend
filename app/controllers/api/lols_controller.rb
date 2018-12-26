@@ -1,4 +1,4 @@
-class LolsController < ApplicationController
+class Api::LolsController < ApplicationController
   before_action :set_lol, only: [:show, :update, :destroy]
   before_action :set_user, only: [:awarded_index, :received_index]
 

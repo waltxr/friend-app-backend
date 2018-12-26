@@ -1,41 +1,47 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :grievances, except: [:index] do
-    resources :comments, module: :grievances
+  namespace :api do
+    resources :grievances, except: [:index] do
+      resources :comments, module: :grievances
+    end
   end
 
-  resources :valid_points, except: [:index]
-  resources :lols, except: [:index]
-  resources :proclamations, except: [:index]
-  resources :quotes, except: [:index]
-  resources :sources, except: [:index]
-
-  resources :users, except: [:update, :destroy] do
-      get 'filed_grievances', to: 'grievances#filed_index'
-      get 'received_grievances', to: 'grievances#received_index'
-
-      get 'awarded_valid_points', to: 'valid_points#awarded_index'
-      get 'received_valid_points', to: 'valid_points#received_index'
-
-      get 'awarded_lols', to: 'lols#awarded_index'
-      get 'received_lols', to: 'lols#received_index'
-
-      get 'reported_proclamations', to: 'proclamations#reported_index'
-      get 'received_proclamations', to: 'proclamations#received_index'
-
-      get 'reported_quotes', to: 'quotes#reported_index'
-      get 'received_quotes', to: 'quotes#received_index'
-
-      get 'cited_sources', to: 'sources#cited_index'
-      get 'received_sources', to: 'sources#received_index'
+  namespace :api do
+    resources :valid_points, except: [:index]
+    resources :lols, except: [:index]
+    resources :proclamations, except: [:index]
+    resources :quotes, except: [:index]
+    resources :sources, except: [:index]
   end
 
+  namespace :api do
+    resources :users, except: [:update, :destroy] do
+        get 'filed_grievances', to: 'grievances#filed_index'
+        get 'received_grievances', to: 'grievances#received_index'
 
-  post 'signup', to: 'users#create'
-  post 'auth/login', to: 'authentication#authenticate'
-  post 'users/find_user', to: 'users#find'
-  put 'users/edit', to: 'users#update'
-  delete 'users/delete', to: 'users#destroy'
+        get 'awarded_valid_points', to: 'valid_points#awarded_index'
+        get 'received_valid_points', to: 'valid_points#received_index'
+
+        get 'awarded_lols', to: 'lols#awarded_index'
+        get 'received_lols', to: 'lols#received_index'
+
+        get 'reported_proclamations', to: 'proclamations#reported_index'
+        get 'received_proclamations', to: 'proclamations#received_index'
+
+        get 'reported_quotes', to: 'quotes#reported_index'
+        get 'received_quotes', to: 'quotes#received_index'
+
+        get 'cited_sources', to: 'sources#cited_index'
+        get 'received_sources', to: 'sources#received_index'
+    end
+  end
+
+  namespace :api do
+    resources :users                 
+    post 'user_token' => 'user_token#create'
+    post 'find_user' => 'users#find'
+  end
+
 
 end

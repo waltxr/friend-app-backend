@@ -1,4 +1,4 @@
-class ProclamationsController < ApplicationController
+class Api::ProclamationsController < ApplicationController
   before_action :set_proclamation, only: [:show, :update, :destroy]
   before_action :set_user, only: [:reported_index, :received_index]
    # GET users/reported_proclamations

@@ -1,7 +1,7 @@
-class GrievancesController < ApplicationController
+class Api::GrievancesController < ApplicationController
   before_action :set_grievance, only: [:show, :update, :destroy]
   before_action :set_user, only: [:filed_index, :received_index]
-  
+
    # GET users/filed_grievances
    def filed_index
      @filed_grievances = @user.filed_grievances

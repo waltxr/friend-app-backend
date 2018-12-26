@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.(comment_params)
