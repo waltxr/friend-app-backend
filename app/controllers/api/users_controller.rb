@@ -41,7 +41,6 @@ class Api::UsersController < ApplicationController
    if @user
      render json: @user
    else
-     byebug
      @errors = @user.errors.full_messages
      render json: @errors
    end
