@@ -36,9 +36,8 @@ class UsersController < ApplicationController
 
   #POST users/find_user
   def find
-    byebug
    @user = User.find_by(email: params[:user][:email])
-
+   byebug
    if @user
      render json: @user
    else

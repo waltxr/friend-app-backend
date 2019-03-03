@@ -6,7 +6,6 @@ class AuthenticateUser
 
   # Service entry point
   def call
-    byebug
     JsonWebToken.encode(user_id: user.id) if user
   end
 
