@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
+    byebug
     json_response_user(@user)
   end
 
@@ -34,17 +35,9 @@ class UsersController < ApplicationController
     head :no_content
   end
 
-  #POST users/find_user
-  def find
-   @user = User.find_by(email: params[:user][:email])
-   byebug
-   if @user
-     render json: @user
-   else
-     @errors = @user.errors.full_messages
-     render json: @errors
-   end
-
+  #GET users/user
+  def user
+    json_response_user(current_user)
   end
 
   private

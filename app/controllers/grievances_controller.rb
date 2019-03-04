@@ -1,7 +1,7 @@
 class GrievancesController < ApplicationController
   before_action :set_grievance, only: [:show, :update, :destroy]
   before_action :set_user, only: [:filed_index, :received_index]
-  
+
    # GET users/filed_grievances
    def filed_index
      @filed_grievances = @user.filed_grievances
@@ -20,6 +20,7 @@ class GrievancesController < ApplicationController
 
    # POST /grievances
    def create
+     byebug
      @grievance = current_user.filed_grievances.create!(grievance_params)
      json_response_cateogry(@grievance)
    end

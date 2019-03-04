@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :quotes, except: [:index]
   resources :sources, except: [:index]
 
-  resources :users, except: [:update, :destroy] do
+  resources :users, except: [:update, :destroy, :show] do
       get 'filed_grievances', to: 'grievances#filed_index'
       get 'received_grievances', to: 'grievances#received_index'
 
@@ -34,8 +34,9 @@ Rails.application.routes.draw do
 
   post 'signup', to: 'users#create'
   post 'auth/login', to: 'authentication#authenticate'
-  post 'users/find_user', to: 'users#find'
-  put 'users/edit', to: 'users#update'
+  get 'users/user', to: 'users#user'
+  get 'users/:id', to: 'users#show'
+  post 'users/edit', to: 'users#update'
   delete 'users/delete', to: 'users#destroy'
 
 end
