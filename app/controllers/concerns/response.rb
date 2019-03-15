@@ -5,7 +5,7 @@ module Response
   end
 
   def json_response_cateogry(object, status = :ok)
-      render json: object, :include => [:reporter, :receiver], status: status
+      render json: object, :include => [:reporter, :receivers], status: status
   end
 
   def json_response_user(object, status = :ok)
