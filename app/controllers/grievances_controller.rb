@@ -20,7 +20,6 @@ class GrievancesController < ApplicationController
 
    # POST /grievances
    def create
-     byebug
      @grievance = current_user.filed_grievances.create!(grievance_params)
      json_response_cateogry(@grievance)
    end
@@ -31,7 +30,7 @@ class GrievancesController < ApplicationController
      json_response_cateogry(@grievance)
    end
 
-   #DELETE /grievances/:id
+   # DELETE /grievances/:id
    def destroy
      @grievance.destroy
      head :no_content
