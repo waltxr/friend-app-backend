@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   #GET users/user
-  def user
+  def user    
     json_response_user(current_user)
   end
 
