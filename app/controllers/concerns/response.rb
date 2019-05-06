@@ -4,6 +4,10 @@ module Response
       render json: object, status: status
   end
 
+  def json_response_comment(object, status = :ok)    
+    render json: object, :include => [:user]
+  end
+
   def json_response_cateogry(object, status = :ok)
       render json: object, :include => [:reporter, :receivers, {:comments => {:include => :user}}], status: status
   end

@@ -3,7 +3,7 @@ class Grievances::CommentsController < CommentsController
 
   private
 
-  def set_commentable
+  def set_commentable    
     @commentable = Grievance.find(params[:grievance_id])
   end
 end
