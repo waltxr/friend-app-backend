@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :comments, module: :grievances
   end
 
+  resources :comments do
+    resources :comments
+  end
+
   resources :valid_points, except: [:index]
   resources :lols, except: [:index]
   resources :proclamations, except: [:index]
