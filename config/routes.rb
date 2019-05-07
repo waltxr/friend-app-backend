@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments do
-    resources :comments
+    resources :comments, module: :comments
   end
 
   resources :valid_points, except: [:index]
