@@ -14,8 +14,8 @@ module Response
 
   def json_response_user(object, status = :ok)
       render json: object, :include => [
-        {:filed_grievances => {:include => [:receivers, {:comments => {:include => :user}}]}},
-        {:received_grievances => {:include => [:receivers, {:comments => {:include => :user}}]}},
+        {:filed_grievances => {:include => [:receivers, :reporter, {:comments => {:include => :user}}]}},
+        {:received_grievances => {:include => [:receivers,:reporter, {:comments => {:include => :user}}]}},
         {:awarded_valid_points => {:include => :reporter}},
         {:received_valid_points => {:include => :receiver}},
         {:awarded_lols => {:include => :reporter}},
