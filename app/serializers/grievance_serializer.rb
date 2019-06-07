@@ -1,9 +1,8 @@
 class GrievanceSerializer < ActiveModel::Serializer
-  attributes :id, :reporter, :receivers, :comments
+  attributes :id, :reporter, :receivers
 
-  include Commentable
+  belongs_to :reporter, serializer: ShallowUserSerializer
+  has_many :receivers, serializer: ShallowUserSerializer
+  has_many :comments
 
-  belongs_to :reporter, class_name: 'User'
-  has_many :grievance_recipients
-  has_many :receivers, through: :grievance_recipients, source: :user
 end

@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
-    byebug
     json_response_user(@user)
   end
 
