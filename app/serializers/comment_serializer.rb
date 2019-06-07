@@ -1,7 +1,6 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :body
+  attributes :id, :commentable_id, :body, :user
 
-  # belongs_to :user
   has_many :comments
 
 end
