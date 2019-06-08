@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
   has_many :comments
 
+  has_many :user_groups
+  has_many :groups, through: :user_groups
+
   has_many :filed_grievances, :class_name => 'Grievance', :foreign_key => 'reporter_id'
   has_many :grievance_recipients
   has_many :received_grievances, :through => :grievance_recipients, :source => :grievance

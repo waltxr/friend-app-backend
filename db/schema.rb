@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181203033118) do
+ActiveRecord::Schema.define(version: 20190608155747) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commentable_type"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 20181203033118) do
     t.datetime "updated_at", null: false
     t.index ["arbitrator_id"], name: "index_grievances_on_arbitrator_id"
     t.index ["reporter_id"], name: "index_grievances_on_reporter_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lols", force: :cascade do |t|
@@ -83,6 +89,15 @@ ActiveRecord::Schema.define(version: 20181203033118) do
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_sources_on_receiver_id"
     t.index ["reporter_id"], name: "index_sources_on_reporter_id"
+  end
+
+  create_table "user_groups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id"
+    t.index ["user_id"], name: "index_user_groups_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
