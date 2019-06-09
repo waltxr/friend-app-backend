@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
   has_many :user_groups
-  has_many :members, :class_name => 'User', through: :user_groups
+  has_many :members, through: :user_groups, source: :user
   has_many :grievances
 end
