@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :comments, module: :grievances
   end
 
+  post 'group/create', to: 'group#create'
+
   resources :comments do
     resources :comments, module: :comments
   end

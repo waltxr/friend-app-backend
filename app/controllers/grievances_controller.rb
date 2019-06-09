@@ -39,7 +39,7 @@ class GrievancesController < ApplicationController
    private
 
    def grievance_params
-     params.require(:grievance).permit(:title, :description, receiver_ids: [])
+     params.require(:grievance).permit(:title, :description, receiver_ids: [], :group_id)
    end
 
    def set_grievance
