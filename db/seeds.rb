@@ -9,3 +9,5 @@
 User.create(name: "Adam", email: "adam@adam.com", password: "foobar", password_confirmation: "foobar")
 User.create(name: "Mitch", email: "mitch@mitch.com", password: "foobar", password_confirmation: "foobar")
 User.create(name: "Nathan", email: "nathan@nathan.com", password: "foobar", password_confirmation: "foobar")
+
+Group.create(name: 'main')
