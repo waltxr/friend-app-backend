@@ -12,6 +12,10 @@ module Response
       render json: object, :include => [:reporter, :receivers, {:comments => {:include => :user}}], status: status
   end
 
+  def json_response_group(object, status = :ok)
+    render json: object, status: status
+  end
+
   # def json_response_user(object, status = :ok)
   #     render json: object, :include => [
   #       {:filed_grievances => {:include => [:receivers, :reporter, {:comments => {:include => :user}}]}},

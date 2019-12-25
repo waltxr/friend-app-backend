@@ -19,7 +19,7 @@ class GrievancesController < ApplicationController
    end
 
    # POST /grievances
-   def create
+   def create     
      @grievance = current_user.filed_grievances.create!(grievance_params)
      json_response_cateogry(@grievance)
    end
@@ -39,7 +39,7 @@ class GrievancesController < ApplicationController
    private
 
    def grievance_params
-     params.require(:grievance).permit(:title, :description, receiver_ids: [], :group_id)
+     params.require(:grievance).permit(:title, :description, :group_id, receiver_ids: [])
    end
 
    def set_grievance

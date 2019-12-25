@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   post 'groups/create', to: 'groups#create'
+  get 'groups/:id', to: 'groups#show'
 
   resources :comments do
     resources :comments, module: :comments
