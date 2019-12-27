@@ -5,7 +5,7 @@ module Response
   end
 
   def json_response_comment(object, status = :ok)
-    render json: object, :include => [:user]
+    render json: object, :include => [:user, :comments]
   end
 
   def json_response_cateogry(object, status = :ok)
