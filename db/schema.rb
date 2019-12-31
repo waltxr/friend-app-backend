@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191222172432) do
+ActiveRecord::Schema.define(version: 20191231160242) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commentable_type"
@@ -110,14 +110,21 @@ ActiveRecord::Schema.define(version: 20191222172432) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "valid_point_recipients", force: :cascade do |t|
+    t.integer "valid_point_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_valid_point_recipients_on_user_id"
+    t.index ["valid_point_id"], name: "index_valid_point_recipients_on_valid_point_id"
+  end
+
   create_table "valid_points", force: :cascade do |t|
     t.integer "reporter_id"
-    t.integer "receiver_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["receiver_id"], name: "index_valid_points_on_receiver_id"
     t.index ["reporter_id"], name: "index_valid_points_on_reporter_id"
   end
 

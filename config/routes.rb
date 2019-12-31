@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :comments, module: :grievances
   end
 
+  resources :valid_points, except: [:index] do
+    resources :comments, module: :valid_points
+  end
+
   post 'groups/create', to: 'groups#create'
   get 'groups/:id', to: 'groups#show'
 
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
     resources :comments, module: :comments
   end
 
-  resources :valid_points, except: [:index]
+
   resources :lols, except: [:index]
   resources :proclamations, except: [:index]
   resources :quotes, except: [:index]
