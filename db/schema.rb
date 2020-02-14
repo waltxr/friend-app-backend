@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191231160242) do
+ActiveRecord::Schema.define(version: 20200213234413) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commentable_type"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 20191231160242) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.string "message"
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "lols", force: :cascade do |t|
     t.integer "reporter_id"
     t.integer "receiver_id"
@@ -79,6 +89,16 @@ ActiveRecord::Schema.define(version: 20191231160242) do
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_quotes_on_receiver_id"
     t.index ["reporter_id"], name: "index_quotes_on_reporter_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.integer "approver_id"
+    t.string "message"
+    t.boolean "approved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sources", force: :cascade do |t|

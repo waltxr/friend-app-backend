@@ -27,4 +27,9 @@ class User < ApplicationRecord
   has_many :cited_sources, :class_name => 'Source', :foreign_key => 'reporter_id'
   has_many :received_sources, :class_name => 'Source', :foreign_key => 'receiver_id'
 
+  has_many :invitations_sent, :class_name => 'Invitation', :foreign_key => 'sender_id'
+  has_many :invitations_received, :class_name => 'Invitation', :foreign_key => 'receiver_id'
+
+  has_many :requests_sent, :class_name => 'Request', :foreign_key => 'user_id'
+  has_many :requests_approved, :class_name => 'Request', :foreign_key => 'approver_id'
 end
