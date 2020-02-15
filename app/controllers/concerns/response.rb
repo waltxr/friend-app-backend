@@ -8,11 +8,15 @@ module Response
     render json: object, :include => [:user, :comments]
   end
 
-  def json_response_cateogry(object, status = :ok)
+  def json_response_category(object, status = :ok)
       render json: object, :include => [:reporter, :receivers, {:comments => {:include => :user}}], status: status
   end
 
   def json_response_group(object, status = :ok)
+    render json: object, status: status
+  end
+
+  def json_response_groups(object, status = :ok)
     render json: object, status: status
   end
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   post 'groups/create', to: 'groups#create'
   get 'groups/:id', to: 'groups#show'
+  get 'groups', to: 'groups#index'
 
   resources :comments do
     resources :comments, module: :comments
