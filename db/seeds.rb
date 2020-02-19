@@ -11,3 +11,7 @@ User.create(name: "Mitch", email: "mitch@mitch.com", password: "foobar", passwor
 User.create(name: "Nathan", email: "nathan@nathan.com", password: "foobar", password_confirmation: "foobar")
 
 Group.create(name: 'main')
+
+20.times do
+  Group.create(name: Faker::Music::RockBand.name)
+end
