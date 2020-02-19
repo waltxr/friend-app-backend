@@ -15,3 +15,5 @@ Group.create(name: 'main')
 20.times do
   Group.create(name: Faker::Music::RockBand.name)
 end
+
+  

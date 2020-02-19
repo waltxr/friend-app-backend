@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200214005535) do
+ActiveRecord::Schema.define(version: 20200219042732) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commentable_type"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20200214005535) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "public"
+    t.text "description"
+    t.string "avatar"
   end
 
   create_table "invitations", force: :cascade do |t|
