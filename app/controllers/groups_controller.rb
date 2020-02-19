@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show]
 
   def index
-    @groups = Group.where(public: true)
+    @groups = Group.where(public: true).except(current_user.groups).sample(10)
     json_response_groups(@groups)
   end
 
