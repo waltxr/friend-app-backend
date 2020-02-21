@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.where(public: true).except(current_user.groups).sample(10)
+    @groups = Group.where(public: true).where("name like ?", "%" + params[:filter] + "%") if params[:filter].present?
     json_response_groups(@groups)
   end
 
