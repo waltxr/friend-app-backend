@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show]
+  before_action :set_group, only: [:show, :update]
 
   def index
     @groups = Group.where(public: true).except(current_user.groups).sample(10)
@@ -15,10 +15,15 @@ class GroupsController < ApplicationController
     json_response_group(@group)
   end
 
+  def update
+    byebug
+    @group.update(group_params)
+  end
+
   private
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, member_ids: [])
   end
 
   def set_group
